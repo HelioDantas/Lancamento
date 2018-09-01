@@ -52,19 +52,21 @@ public class LancamentoRecource {
 		Lancamento novoLancamento = lancamentoService.salvar(lancamento);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 	}
-	@GetMapping("/Lancamento/buscar/DataInical/{data}")
-	public ResponseEntity<List<Lancamento>> buscarPorDataInical(@PathVariable("data") LocalDate data) {
-		List<Lancamento> lancamentos = lancamentoService.buscarPorDataInicial(data);
+	@GetMapping("/Lancamento/buscar/vencimento/{vencimento}")
+	public ResponseEntity<List<Lancamento>> buscarPorVencimento(@PathVariable("vencimento") LocalDate vencimento) {
+		List<Lancamento> lancamentos = lancamentoService.buscarPorDataVencimento(vencimento);
 		return new ResponseEntity<List<Lancamento>>(lancamentos, HttpStatus.OK);
 
 	
 }
-	@GetMapping("/Lancamento/buscar/DataFinal/{data}")
+/*	@GetMapping("/Lancamento/buscar/DataFinal/{data}")
 	public ResponseEntity<List<Lancamento>> buscarPorDataFinal(@PathVariable("data") LocalDate data) {
 		List<Lancamento> lancamentos = lancamentoService.buscarPorDataFinal(data);
 		return new ResponseEntity<List<Lancamento>>(lancamentos, HttpStatus.OK);
 
 	
 }
+*/
+
 	
 }

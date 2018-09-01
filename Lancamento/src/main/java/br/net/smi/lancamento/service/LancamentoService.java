@@ -32,16 +32,16 @@ public class LancamentoService {
 	public void remover(Long id) {
 		lancamentoRepository.deleteById(id);
 
+	} 
+
+	public List<Lancamento> buscarPorDataVencimento(LocalDate vencimento) {
+
+		return lancamentoRepository.findByVencimento(vencimento);
 	}
 
-	public List<Lancamento> buscarPorDataInicial(LocalDate data) {
 
-		return lancamentoRepository.findByDataDeInicio(data);
-	}
+	
+	
 
-	public List<Lancamento> buscarPorDataFinal(LocalDate data) {
-
-		return lancamentoRepository.findByDataDeFinal(data);
-	}
 
 }

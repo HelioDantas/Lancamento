@@ -24,8 +24,7 @@ public class Lancamento {
 	private Long id;
 	private String tipo;
 	private LocalDate vencimento;
-	private LocalDate dataDeInicio;
-	private LocalDate dataDeFinal;
+	
 	private  BigDecimal valor;
 	 @ManyToOne
 	 @JoinColumn(name="empresa_id")
