@@ -32,4 +32,8 @@ public class CategoriaService {
 
 	}
 
+	public Categoria buscarPorId(Long id) {
+		return categoriaReposirory.findById(id).get();
+		
+	}
 }

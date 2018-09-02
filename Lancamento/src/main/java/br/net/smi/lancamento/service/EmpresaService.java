@@ -33,15 +33,16 @@ public class EmpresaService {
 	
 		
 	}
-	public Empresa buscarPorNome(String nome) {
-		return empresaRepository.findByNome(nome);
+//	public List<Empresa> buscarPorNomeOuCnpj(String nome) {
+	//	return empresaRepository.findByNomeOrCnpjIgnoreCaseContainig(nome);
+		
+	//}
+	
+
+	public Empresa buscaPorId(Long id){
+		return empresaRepository.findById(id).get();
+		
 		
 	}
-	
-	public Empresa buscarPorCnpj(String cnpj) {
-		return empresaRepository.findByCnpj(cnpj);
-		
-	}
-	
 
 }

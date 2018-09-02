@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 import javax.persistence.Entity;
 
 import lombok.Getter;
@@ -18,6 +19,7 @@ public class Empresa {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotEmpty
 	private String nome;
 	@Column(length=14)
 	private String cnpj;

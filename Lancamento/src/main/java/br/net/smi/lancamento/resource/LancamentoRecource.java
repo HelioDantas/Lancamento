@@ -1,9 +1,11 @@
 package br.net.smi.lancamento.resource;
 
 import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import br.net.smi.lancamento.model.Lancamento;
+import br.net.smi.lancamento.model.lancamentoDTO;
 import br.net.smi.lancamento.service.LancamentoService;
 
 @RestController
@@ -27,8 +30,8 @@ public class LancamentoRecource {
 	
 	
 	@PostMapping("/Lancamento")
-	public ResponseEntity<Lancamento> salvarCategoria(@RequestBody Lancamento lancamento) {
-		Lancamento novoLancamento = lancamentoService.salvar(lancamento);
+	public ResponseEntity<Lancamento> salvarCategoria(@RequestBody lancamentoDTO lancamentoDto) {
+		Lancamento novoLancamento = lancamentoService.salvar(lancamentoDto);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 
 	}
@@ -49,11 +52,15 @@ public class LancamentoRecource {
 
 	@PutMapping("/Lancamento")
 	public ResponseEntity<Lancamento> atualizarCategoria(@RequestBody Lancamento lancamento) {
-		Lancamento novoLancamento = lancamentoService.salvar(lancamento);
+		Lancamento novoLancamento = lancamentoService.atualizar(lancamento);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 	}
-	@GetMapping("/Lancamento/buscar/vencimento/{vencimento}")
-	public ResponseEntity<List<Lancamento>> buscarPorVencimento(@PathVariable("vencimento") LocalDate vencimento) {
+	
+	/*
+	@GetMapping("/Lancamento/buscar/")
+	public ResponseEntity<List<Lancamento>> buscarPorVencimento(@PathVariable("vencimentoInicial") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate vencimentoF
+	@PathVariable("vencimentoFinal") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate vencimentoI)
+	{
 		List<Lancamento> lancamentos = lancamentoService.buscarPorDataVencimento(vencimento);
 		return new ResponseEntity<List<Lancamento>>(lancamentos, HttpStatus.OK);
 

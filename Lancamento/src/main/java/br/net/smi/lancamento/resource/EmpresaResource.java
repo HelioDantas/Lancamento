@@ -49,15 +49,11 @@ public class EmpresaResource {
 	}
 	
 
-	@GetMapping("/Empresa/buscarEmpresa/nome/{nome}")
-	public ResponseEntity<Empresa> buscarEmpresaPorNome(@PathVariable("nome") String nome) {
-		Empresa empresas = empresaService.buscarPorNome(nome);
+/*	@GetMapping("/Empresa/buscarEmpresa/nomeOuNnpj/{nome}")
+	public ResponseEntity<List<Empresa>> buscarEmpresaPorNome(@PathVariable("nome") String nome) {
+		List<Empresa> empresas = empresaService.buscarPorNomeOuCnpj(nome);
 		return new ResponseEntity<>(empresas, HttpStatus.OK);
-	}
+	}*/
 
-	@GetMapping("/Empresa/buscarEmpresa/cnpj/{cnpj}")
-	public ResponseEntity<Empresa> buscarEmpresaPorCnpj(@PathVariable("cnpj") String cnpj) {
-		Empresa empresas = empresaService.buscarPorCnpj(cnpj);
-		return new ResponseEntity<Empresa>(empresas, HttpStatus.OK);
-	}
+
 }

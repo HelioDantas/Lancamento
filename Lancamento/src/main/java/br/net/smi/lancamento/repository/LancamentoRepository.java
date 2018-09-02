@@ -11,5 +11,5 @@ import br.net.smi.lancamento.model.Lancamento;
 @Repository
 public interface LancamentoRepository extends JpaRepository<Lancamento, Long>{
 	
-	List<Lancamento> findByVencimento(LocalDate Vencimento);
+	List<Lancamento> findByVencimentoBetween(LocalDate vencimentoInical, LocalDate vencimentoFinal);
 }

@@ -4,6 +4,7 @@ package br.net.smi.lancamento.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Getter@Setter
+@Getter @Setter
 @Entity
 public class Lancamento {
 	
@@ -33,6 +34,7 @@ public class Lancamento {
 	 @ManyToOne
 	 @JoinColumn(name="categoria_id")
 	 private Categoria categoria;
+	 
 
 }
 
