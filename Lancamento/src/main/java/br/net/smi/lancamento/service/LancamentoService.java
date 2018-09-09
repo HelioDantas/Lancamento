@@ -15,7 +15,9 @@ import br.net.smi.lancamento.repository.LancamentoRepository;
 public class LancamentoService {
 	@Autowired
 	private LancamentoRepository lancamentoRepository;
+	@Autowired
 	private EmpresaService empresaService;
+	@Autowired
 	private CategoriaService categoriaService;
 
 	public Lancamento salvar(lancamentoDTO lancamentoDTO) {

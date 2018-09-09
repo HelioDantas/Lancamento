@@ -53,7 +53,7 @@ public class EmpresaResource {
 	public ResponseEntity<List<Empresa>> buscarEmpresaPorNome(@PathVariable("nome") String nome) {
 		List<Empresa> empresas = empresaService.buscarPorNomeOuCnpj(nome);
 		return new ResponseEntity<>(empresas, HttpStatus.OK);
-	}*/
-
+	}
+*/
 
 }

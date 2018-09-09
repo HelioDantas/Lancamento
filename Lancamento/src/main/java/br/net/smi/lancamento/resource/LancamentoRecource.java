@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import br.net.smi.lancamento.model.Lancamento;
 import br.net.smi.lancamento.model.lancamentoDTO;
@@ -23,12 +23,10 @@ import br.net.smi.lancamento.service.LancamentoService;
 
 @RestController
 public class LancamentoRecource {
-	
+
 	@Autowired
 	private LancamentoService lancamentoService;
 
-	
-	
 	@PostMapping("/Lancamento")
 	public ResponseEntity<Lancamento> salvarCategoria(@RequestBody lancamentoDTO lancamentoDto) {
 		Lancamento novoLancamento = lancamentoService.salvar(lancamentoDto);
@@ -55,25 +53,16 @@ public class LancamentoRecource {
 		Lancamento novoLancamento = lancamentoService.atualizar(lancamento);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 	}
-	
-	/*
+
 	@GetMapping("/Lancamento/buscar/")
-	public ResponseEntity<List<Lancamento>> buscarPorVencimento(@PathVariable("vencimentoInicial") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate vencimentoF
-	@PathVariable("vencimentoFinal") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate vencimentoI)
-	{
-		List<Lancamento> lancamentos = lancamentoService.buscarPorDataVencimento(vencimento);
+	public ResponseEntity<List<Lancamento>> buscarPorVencimento(@RequestParam("vencimentoInicial") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate dataDeInicio,
+	@RequestParam("vencimentoFinal") @DateTimeFormat(pattern="dd-mm-yyyy")LocalDate vencimentoI){
+		List<Lancamento> lancamentos = lancamentoService.buscarPorDataVencimento(dataDeInicio,vencimentoI );
 		return new ResponseEntity<List<Lancamento>>(lancamentos, HttpStatus.OK);
 
 	
 }
-/*	@GetMapping("/Lancamento/buscar/DataFinal/{data}")
-	public ResponseEntity<List<Lancamento>> buscarPorDataFinal(@PathVariable("data") LocalDate data) {
-		List<Lancamento> lancamentos = lancamentoService.buscarPorDataFinal(data);
-		return new ResponseEntity<List<Lancamento>>(lancamentos, HttpStatus.OK);
 
-	
-}
-*/
 
 	
 }

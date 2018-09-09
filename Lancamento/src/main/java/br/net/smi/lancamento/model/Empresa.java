@@ -1,12 +1,10 @@
 package br.net.smi.lancamento.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.persistence.Entity;
 
@@ -25,8 +23,7 @@ public class Empresa {
 	private String cnpj;
 	private String nomeResponsavel;
 	
-	@OneToMany
-	List<Lancamento> lancamento;
+	
 	
 	
 	

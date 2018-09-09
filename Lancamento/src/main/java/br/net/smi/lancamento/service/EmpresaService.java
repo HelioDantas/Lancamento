@@ -27,22 +27,20 @@ public class EmpresaService {
 		return empresaRepository.save(empresa);
 
 	}
-	
+
 	public void remover(Long id) {
 		empresaRepository.deleteById(id);
-	
-		
-	}
-//	public List<Empresa> buscarPorNomeOuCnpj(String nome) {
-	//	return empresaRepository.findByNomeOrCnpjIgnoreCaseContainig(nome);
-		
-	//}
-	
 
-	public Empresa buscaPorId(Long id){
+	}
+
+/*	public List<Empresa> buscarPorNomeOuCnpj(String nome) {
+		return empresaRepository.findByNomeOrCnpj(nome);
+
+	}*/
+
+	public Empresa buscaPorId(Long id) {
 		return empresaRepository.findById(id).get();
-		
-		
+
 	}
 
 }
