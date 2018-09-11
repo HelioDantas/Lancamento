@@ -2,6 +2,8 @@ package br.net.smi.lancamento.resource;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,7 @@ public class CategoriaResource {
 	private CategoriaService categoriaService;
 
 	@PostMapping("/Categoria")
-	public ResponseEntity<Categoria> salvarCategoria(@RequestBody Categoria categoria) {
+	public ResponseEntity<Categoria> salvarCategoria(@RequestBody @Valid Categoria categoria) {
 		Categoria novaCategoria = categoriaService.salvar(categoria);
 		return new ResponseEntity<Categoria>(novaCategoria, HttpStatus.OK);
 
@@ -45,7 +47,7 @@ public class CategoriaResource {
 	}
 
 	@PutMapping("/Categoria")
-	public ResponseEntity<Categoria> atualizarCategoria(@RequestBody Categoria categoria) {
+	public ResponseEntity<Categoria> atualizarCategoria(@RequestBody  @Valid Categoria categoria) {
 		Categoria novaCategoria = categoriaService.salvar(categoria);
 		return new ResponseEntity<Categoria>(novaCategoria, HttpStatus.OK);
 	}

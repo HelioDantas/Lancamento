@@ -2,6 +2,8 @@ package br.net.smi.lancamento.resource;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,7 @@ public class EmpresaResource {
 	private EmpresaService empresaService;
 
 	@PostMapping("/Empresa")
-	public ResponseEntity<Empresa> salvarEmpresa(@RequestBody Empresa empresa) {
+	public ResponseEntity<Empresa> salvarEmpresa(@RequestBody @Valid Empresa empresa) {
 		Empresa novaEmpresa = empresaService.salvar(empresa);
 		return new ResponseEntity<>(novaEmpresa, HttpStatus.OK);
 	}
@@ -42,7 +44,7 @@ public class EmpresaResource {
 		
 	}
 	@PutMapping("/Empresa")
-	public ResponseEntity<Empresa> atualizarEmpresa(@RequestBody Empresa empresa){
+	public ResponseEntity<Empresa> atualizarEmpresa(@RequestBody @Valid Empresa empresa){
 		Empresa empresaAtualizada = empresaService.salvar(empresa);
 		return new ResponseEntity<Empresa>(empresaAtualizada, HttpStatus.OK);
 			

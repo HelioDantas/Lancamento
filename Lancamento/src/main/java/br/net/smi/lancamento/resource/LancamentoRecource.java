@@ -4,6 +4,8 @@ import java.time.LocalDate;
 //import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -28,7 +30,7 @@ public class LancamentoRecource {
 	private LancamentoService lancamentoService;
 
 	@PostMapping("/Lancamento")
-	public ResponseEntity<Lancamento> salvarCategoria(@RequestBody lancamentoDTO lancamentoDto) {
+	public ResponseEntity<Lancamento> salvarCategoria(@RequestBody @Valid lancamentoDTO lancamentoDto) {
 		Lancamento novoLancamento = lancamentoService.salvar(lancamentoDto);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 
@@ -49,8 +51,8 @@ public class LancamentoRecource {
 	}
 
 	@PutMapping("/Lancamento")
-	public ResponseEntity<Lancamento> atualizarCategoria(@RequestBody Lancamento lancamento) {
-		Lancamento novoLancamento = lancamentoService.atualizar(lancamento);
+	public ResponseEntity<Lancamento> atualizarCategoria(@RequestBody @Valid lancamentoDTO lancamentoDto) {
+		Lancamento novoLancamento = lancamentoService.atualizar(lancamentoDto);
 		return new ResponseEntity<Lancamento>(novoLancamento, HttpStatus.OK);
 	}
 

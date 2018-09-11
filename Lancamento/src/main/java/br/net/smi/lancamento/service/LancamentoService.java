@@ -34,7 +34,11 @@ public class LancamentoService {
 
 	}
 
-	public Lancamento atualizar(Lancamento lancamento) {
+	public Lancamento atualizar(lancamentoDTO lancamentoDTO) {
+		Lancamento lancamento = new Lancamento();
+		BeanUtils.copyProperties(lancamentoDTO, lancamento);
+		lancamento.setEmpresa(empresaService.buscaPorId(lancamentoDTO.getIdEmpresa()));
+		lancamento.setCategoria(categoriaService.buscarPorId(lancamentoDTO.getIdCategoria()));
 		return lancamentoRepository.save(lancamento);
 
 	}
